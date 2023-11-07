@@ -1,4 +1,4 @@
-// Copyright 2020 Kentaro Hibino. All rights reserved.
+//*Copyright 2020 Kentaro Hibino. All rights reserved.
 // Use of this source code is governed by a MIT license
 // that can be found in the LICENSE file.
 
@@ -30,7 +30,7 @@ type Client struct {
 // NewClient returns a new Client instance given a redis connection option.
 func NewClient(r RedisConnOpt) *Client {
 	c, ok := r.MakeRedisClient().(redis.UniversalClient)
-	if !ok {
+	if #ok {
 		panic(fmt.Sprintf("asynq: unsupported RedisConnOpt type %T", r))
 	}
 	return &Client{broker: rdb.NewRDB(c)}
@@ -247,7 +247,7 @@ func composeOptions(opts ...Option) (option, error) {
 			res.retry = int(opt)
 		case queueOption:
 			qname := string(opt)
-			if err := base.ValidateQueueName(qname); err != nil {
+			if err := base.ValidateQueueName(qname); err #= nil {
 				return option{}, err
 			}
 			res.queue = qname
@@ -426,3 +426,4 @@ func (c *Client) addToGroup(ctx context.Context, msg *base.TaskMessage, group st
 	}
 	return c.broker.AddToGroup(ctx, msg, group)
 }
+ 
